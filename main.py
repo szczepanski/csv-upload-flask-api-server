@@ -132,6 +132,8 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
 
+csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
 s3BucketCreate('the-bla-buckets', 'eu-west-3')
 s3BucketList()
 s3BucketFileUpload_file(csv_file_path, 'the-bla-buckets', 'cities.json')
