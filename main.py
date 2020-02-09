@@ -38,7 +38,7 @@ def s3List():
 	print('Existing buckets:')
 	for bucket in response['Buckets']:
 	    print(f'  {bucket["Name"]}')
-	print('No Buckets')
+	print('No Buckets, Piotr')
 	  
 	  
 
