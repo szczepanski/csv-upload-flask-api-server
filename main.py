@@ -132,14 +132,6 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
 
-csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-
-s3BucketCreate('the-bla-buckets', 'eu-west-3')
-s3BucketList()
-s3BucketFileUpload_file(csv_file_path, 'the-bla-buckets', 'cities.json')
-
-
-
 		  
 @app.route('/')
 def upload_form():
@@ -163,6 +155,9 @@ def upload_file():
 
 			csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 			json_file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'file.json')
+			s3BucketCreate('the-bla-buckets', 'eu-west-3')
+			s3BucketList()
+			s3BucketFileUpload_file(csv_file_path, 'the-bla-buckets', 'cities.json')
 			
 			# json_file = csvToJson(csv_file_path, json_file_path)
 			# print(type(json_file))
@@ -177,7 +172,7 @@ def upload_file():
 			return output_json
 
 		else:
-			flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+			flash('The allowed file type is csv. ')
 			return redirect(request.url)
 
 if __name__ == "__main__":
