@@ -1,5 +1,7 @@
 pip3 install virtualenv
 virtualenv -p python3 pyt3_env
 . ./pyt3/bin/activate
+
+yum -y install git
 pip3 install flask
-pip install boto3
+pip3 install boto3
