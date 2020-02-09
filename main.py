@@ -2,8 +2,7 @@
 
 """
 
-csv file upload
-flask api server
+csv file upload - flask api server
 converts csv file into jsnon and uploads to AWS S3 bucket
  
 """
@@ -29,6 +28,18 @@ from botocore.exceptions import ClientError
 
 ALLOWED_EXTENSIONS = set(['csv'])
 
+def s3List():
+	
+	# Retrieve the list of existing buckets
+	s3 = boto3.client('s3')
+	response = s3.list_buckets()
+
+	# Output the bucket names
+	print('Existing buckets:')
+	for bucket in response['Buckets']:
+	    print(f'  {bucket["Name"]}')
+	  
+	  
 
 def csvToJson(csv_file_path, json_file_path):
 	data = {}
@@ -70,6 +81,10 @@ def getFileMd5(csv_file_path):
 def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
+
+s3List()
+
+		  
 @app.route('/')
 def upload_form():
 	return render_template('upload.html')
