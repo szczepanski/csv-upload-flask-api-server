@@ -154,24 +154,24 @@ def upload_file():
 			flash('File successfully uploaded')
 
 			csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-			json_file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'file.json')
-			s3BucketCreate('the-bla-buckets', 'eu-west-3')
-			s3BucketList()
-			s3BucketFileUpload_file(csv_file_path, 'the-bla-buckets', 'cities.json')
+			json_file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'cities.json')
 			
-			# json_file = csvToJson(csv_file_path, json_file_path)
-			# print(type(json_file))
-			# with open(json_file_path, 'r') as f2:
-			# 	data = f2.read()
-			# 	print(data)
-			# 	return data
+		
+			# s3BucketFileUpload_file(json_file_path, 'the-bla-buckets', 'cities.json')
+			
 			
 			data = converCsvToList(csv_file_path)
 			md5 = getFileMd5(csv_file_path)
 			output_json = {'Data': data, 'md5': md5}
 			
-			with open('cities.json', 'w') as f:
+			with open(json_file_path, 'w') as f:
 				json.dump(output_json, f)
+			
+			
+			s3BucketCreate('the-bla-buckets', 'eu-west-3')
+			s3BucketList()
+			s3BucketFileUpload_file(json_file_path, 'the-bla-buckets', 'cities.json')
+
 			
 			return output_json
 
