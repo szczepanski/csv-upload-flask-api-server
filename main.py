@@ -1,3 +1,19 @@
+#!/usr/bin/env python3
+
+"""
+
+csv file upload
+flask api server
+converts csv file into jsnon and uploads to AWS S3 bucket
+ 
+"""
+
+__author__ = "Piotr Szczepanski"
+__version__ = "0.1.0"
+__license__ = "MIT"
+
+
+
 import os
 import csv, json
 import urllib.request
