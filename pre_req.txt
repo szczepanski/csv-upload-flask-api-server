@@ -2,6 +2,9 @@ pip3 install virtualenv
 virtualenv -p python3 pyt3_env
 . ./pyt3/bin/activate
 
+yum -y install zip
+yum -y install unzip
+
 
 yum -y install zsh
 yum -y install wget git
@@ -12,6 +15,11 @@ zsh
 yum -y install git
 pip3 install flask
 pip3 install boto3
+
+curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+rm awscliv2.zip -f
 
 export AWS_ACCESS_KEY_ID=TheKey
 export AWS_SECRET_ACCESS_KEY=TheKey
