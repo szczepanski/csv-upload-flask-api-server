@@ -109,9 +109,9 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
 
-s3BucketList()
-# s3BucketCreate('the-bla-buckets', 'eu-west3')
-s3BucketList()
+# s3BucketList()
+s3BucketCreate('the-bla-buckets-sdksdfjkhs', 'eu-west3')
+# s3BucketList()
 
 
 
