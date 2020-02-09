@@ -12,3 +12,7 @@ zsh
 yum -y install git
 pip3 install flask
 pip3 install boto3
+
+export AWS_ACCESS_KEY_ID=TheKey
+export AWS_SECRET_ACCESS_KEY=TheKey
+export AWS_DEFAULT_REGION=TheRegion
