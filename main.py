@@ -169,6 +169,10 @@ def upload_file():
 			data = converCsvToList(csv_file_path)
 			md5 = getFileMd5(csv_file_path)
 			output_json = {'Data': data, 'md5': md5}
+			
+			with open('cities.json', 'w') as f:
+				json.dump(output_json, f)
+			
 			return output_json
 
 		else:
