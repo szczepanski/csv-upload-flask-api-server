@@ -110,7 +110,7 @@ def allowed_file(filename):
 	
 
 s3BucketList()
-s3BucketCreate('the-bla-buckets', 'eu-west3')
+# s3BucketCreate('the-bla-buckets', 'eu-west3')
 s3BucketList()
 
 
