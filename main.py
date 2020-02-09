@@ -28,7 +28,7 @@ from botocore.exceptions import ClientError
 
 ALLOWED_EXTENSIONS = set(['csv'])
 
-def s3List():
+def s3BucketList():
 	
 	# Retrieve the list of existing buckets
 	s3 = boto3.client('s3')
@@ -38,10 +38,9 @@ def s3List():
 	print('Existing buckets:')
 	for bucket in response['Buckets']:
 	    print(f'  {bucket["Name"]}')
-	print('No Buckets, Piotr')
 		  
 		  
-def create_bucket(bucket_name, region=None):
+def s3BucketCreate(bucket_name, region):
     """Create an S3 bucket in a specified region
 
     If a region is not specified, the bucket is created in the S3 default
@@ -110,7 +109,11 @@ def allowed_file(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 	
 
-s3List()
+s3BucketList()
+s3BucketCreate('the-bla-buckets', 'eu-west3')
+s3BucketList()
+
+
 
 		  
 @app.route('/')
