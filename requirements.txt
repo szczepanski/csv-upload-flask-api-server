@@ -2,6 +2,13 @@ pip3 install virtualenv
 virtualenv -p python3 pyt3_env
 . ./pyt3/bin/activate
 
+
+yum -y install zsh
+yum -y install wget git
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+zsh
+
 yum -y install git
 pip3 install flask
 pip3 install boto3
