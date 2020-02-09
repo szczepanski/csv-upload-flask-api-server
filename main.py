@@ -94,4 +94,4 @@ def upload_file():
 			return redirect(request.url)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, host='0.0.0.0')
