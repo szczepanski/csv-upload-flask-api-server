@@ -1,6 +1,8 @@
 <!doctype html>
 <title>File Upload</title>
 <h2>Select a CSV file to upload</h2>
+<h3>Once submitted, the file gets converted into JSON and uploaded to S3 bucket</h3>
+
 <p>
 	{% with messages = get_flashed_messages() %}
 	  {% if messages %}
