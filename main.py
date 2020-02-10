@@ -22,6 +22,9 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 
+json_filename = 'cities.json'
+s3_bucket_name = 'csv-to-json-upload'
+aws_region = 'eu-west-3'
 
 ALLOWED_EXTENSIONS = set(['csv'])
 
@@ -55,7 +58,7 @@ def s3BucketCreate(bucket_name, region):
     return True
 		  
 
-def s3BucketFileUpload_file(file_name, bucket, object_name=None):
+def s3BucketFileUpload(file_name, bucket, object_name=None):
 
     # If S3 object_name was not specified, use file_name
     if object_name is None:
@@ -116,29 +119,33 @@ def upload_file():
 			flash('No file selected for uploading')
 			return redirect(request.url)
 		if file and allowed_file(file.filename):
-			filename = secure_filename(file.filename)
-			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			csv_filename = secure_filename(file.filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], csv_filename))
 			flash('File successfully uploaded')
 
-			csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-			json_file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'cities.json')
+			csv_file_path = os.path.join(app.config['UPLOAD_FOLDER'], csv_filename)
+			json_file_path = os.path.join(app.config['UPLOAD_FOLDER'], json_filename)
 						
 			
 			data = converCsvToList(csv_file_path)
 			md5 = getFileMd5(csv_file_path)
 			output_json = {'Data': data, 'md5': md5}
 			
+			# save final output_json locally
 			with open(json_file_path, 'w') as f:
 				json.dump(output_json, f)
 			
-			s3BucketCreate('the-bla-buckets', 'eu-west-3')
+			# create new bucket (if first run)
+			s3BucketCreate(s3_bucket_name, aws_region)
 			s3BucketList()
-			s3BucketFileUpload_file(json_file_path, 'the-bla-buckets', 'cities.json')
+			
+			# upload / update json file
+			s3BucketFileUpload(json_file_path, s3_bucket_name, json_filename)
 
 			return output_json
 
 		else:
-			flash('The allowed file type is csv. ')
+			flash('The only allowed file type is csv')
 			return redirect(request.url)
 
 
