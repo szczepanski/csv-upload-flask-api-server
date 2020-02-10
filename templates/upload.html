@@ -1,11 +1,16 @@
 <!doctype html>
 <title>File Upload</title>
-<h1>Welcome to file upload page</h1>
-<h2>Select your CSV file to upload</h2>
-<h3>Once the file is submitted, it:<br>
-	- uploadsto EC2 <br>
-	- converts into JSON<br>
-	- uploades to S3 bucket</h3>
+<h1>Welcome to upload page</h1>
+
+<h5>Once the file is submitted, it:<h5>
+<ul>
+	<li> uploads to EC2 </li>
+	<li> converts into JSON </li>
+	<li> uploades to S3 bucket </li>
+</ul>
+
+<h5>Select your CSV file to upload<h5>
+
 
 <p>
 	{% with messages = get_flashed_messages() %}
