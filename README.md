@@ -5,7 +5,7 @@
 
 upload csv file, convert to json and upload to S3 bucket
 
-access:
+web access:
 
 http://35.180.79.107/
 
@@ -14,7 +14,7 @@ http://35.180.79.107/
 
 ## Code 
 
-- more modularity could be introduced- separate python modules that could deal with:
+- more modularity could be introduced by separation of python modules that could separately deal with:
 
   - aws functions
   - file conversion functions 
@@ -33,12 +33,10 @@ http://35.180.79.107/
 ## Security 
 
 - SSL, TLS / HTTPS instead of http
-- JSON Web Tokens 
+- Authorization with Flask-JWT - JSON Web Tokens
 
-## Budget 
-AWS lamba function 
+## Budget
 
-
-
+transitioning EC2 based solution to serverless - AWS lamba function solution
 
 
