@@ -1,6 +1,3 @@
-
-
-
 # csv upload - flask api server
 
 upload csv file, convert to json and upload to S3 bucket
@@ -8,6 +5,14 @@ upload csv file, convert to json and upload to S3 bucket
 web access:
 
 http://35.180.79.107/
+
+
+
+- [Possible Improvements](#possible-improvements)
+  * [Code](#code)
+  * [Design](#design)
+  * [Security](#security)
+  * [Budget](#budget)
 
 
 # Possible Improvements
