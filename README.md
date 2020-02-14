@@ -4,16 +4,18 @@ upload csv file, convert to json and upload to S3 bucket
 
 web access:
 
-http://35.180.79.107/
+http://35.180.75.57/
 
 
+
+- [csv upload - flask api server](#csv-upload---flask-api-server)
 
 - [Possible Improvements](#possible-improvements)
   * [Code](#code)
   * [Design](#design)
   * [Security](#security)
   * [Budget](#budget)
-  * [Infrastracture as Code / IaC - Orchestartion](#Infrastracture-as-Code-/-IaC---Orchestartion)
+  * [Infrastracture as Code / IaC - Orchestartion](#infrastracture-as-code---iac---orchestartion)
 
 
 # Possible Improvements
