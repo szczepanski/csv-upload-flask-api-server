@@ -42,9 +42,9 @@ http://35.180.79.107/
 - Authorization with Flask-JWT - JSON Web Tokens
 - introduction of web-facing ELB in dedicated public subnet (connected to AWS - IGW)
 - separation and hardening security of VPC's subnets - 3 tier desing (AWS security groups <instance level> and ACL <network level> )
- - I -> public - web facing ELB subnet
- - II -> private - application server hidden behind the ELB
- - III - > private - DB subnet to secure and separate data from   
+  - I -> public - web facing ELB subnet
+  - II -> private - application server hidden behind the ELB
+  - III - > private - DB subnet to secure and separate data from   
  
  Gateway Endpoints
 - introduction of AWS - KMS and / or Vault cluster
