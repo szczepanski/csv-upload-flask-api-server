@@ -8,14 +8,12 @@ http://35.180.75.57/
 
 
 
-- [csv upload - flask api server](#csv-upload---flask-api-server)
-
 - [Possible Improvements](#possible-improvements)
   * [Code](#code)
   * [Design](#design)
   * [Security](#security)
   * [Budget](#budget)
-  * [Infrastracture as Code / IaC - Orchestartion](#infrastracture-as-code---iac---orchestartion)
+  * [Infrastracture as Code / IaC - Orchestartion](#infrastracture-as-code-iac-orchestartion)
 
 
 # Possible Improvements
@@ -58,7 +56,7 @@ http://35.180.75.57/
 
 - transitioning EC2 based solution to serverless - AWS lamba function solution - pay per number of requests only
 
-## Infrastracture as Code / IaC - Orchestartion
+## Infrastracture as Code IaC Orchestartion
 
 - transisioning the backend AWS infra deployment into IaC design - Terraform (modular design) and Ansible - EC2 based solution
 - in case of application of containerization / docker - terraform could be utilized to deploy Kubernetes cluster 
